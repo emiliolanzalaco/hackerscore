@@ -7,7 +7,8 @@ import { ToastProvider } from '@/context/Toaster'
 import { cookieToInitialState } from 'wagmi'
 import { WALLETCONNECT_CONFIG } from '@/utils/web3'
 import { headers } from 'next/headers'
-import '../assets/globals.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: SITE_NAME,
