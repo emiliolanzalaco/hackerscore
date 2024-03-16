@@ -1,0 +1,21 @@
+.layout {
+  display: grid;
+  grid-template-rows: 8% 88% 4%;
+  height: 100vh;
+}
+
+.header {
+  width: 100vw;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
