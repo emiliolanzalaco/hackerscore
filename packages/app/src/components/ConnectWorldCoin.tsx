@@ -7,9 +7,9 @@ export function ConnectWorldCoin() {
   const [proof, setProof] = useState<ISuccessResult | null>(null)
 
   const { address } = useAccount()
-  if (!address) {
-    alert('Please connect your wallet')
-    return
-  }
+  // if (!address) {
+  //   alert('Please connect your wallet')
+  //   return
+  // }
   return <button className='btn btn-md btn-primary'>connect worldcoin</button>
 }

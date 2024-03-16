@@ -6379,6 +6379,11 @@ pathe@^1.1.0, pathe@^1.1.1, pathe@^1.1.2:
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-1.1.2.tgz#6c4cb47a945692e48a1ddd6e4094d170516437ec"
   integrity sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==
 
+permissionless@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/permissionless/-/permissionless-0.1.10.tgz#992da1cb024e86511aaff96bcddccb2ccd1d697b"
+  integrity sha512-LVjGVLRfARHhuWSktiO5wd2tA0iTzP+Se8oDKRVyzb5Z/X4jCL+3hqWJMeERkjn3bOK0al2cv55sIABFOo+XKg==
+
 picocolors@^1, picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
