@@ -18,7 +18,7 @@ contract HackerScoreResolver is SchemaResolver {
     error NotRegistered(address user);
     error InvalidSchemaUID();
 
-    constructor(IEAS eas_) SchemaResolver(eas_) {
+    constructor(address eas_) SchemaResolver(IEAS(eas_)) {
         registrationSchemaUID = ISchemaRegistry(0x4200000000000000000000000000000000000020).register(
             "bytes32 nullifierHash", ISchemaResolver(address(this)), true
         );

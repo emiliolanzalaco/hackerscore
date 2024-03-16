@@ -18,7 +18,7 @@ contract HackerResolverTest is Test {
     error InvalidAttestation();
 
     function setUp() public {
-        hackerScoreResolver = new HackerScoreResolver(eas);
+        hackerScoreResolver = new HackerScoreResolver(address(eas));
         registrationSchemaUID = hackerScoreResolver.registrationSchemaUID();
         hackerCredSchemaUID = hackerScoreResolver.hackerCredSchemaUID();
     }
