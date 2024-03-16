@@ -28,7 +28,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className='collapse navbar-collapse'>
           <ul className='nav navbar-nav navbar-center'>
             <li>
-              <button className='btn btn-lg btn-primary'>connect</button>
+              <button className='btn btn-md btn-primary'>connect wallet </button>
+              <button className='btn btn-md btn-primary'>connect worldcoin</button>
             </li>
           </ul>
         </div>
