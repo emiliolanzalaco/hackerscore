@@ -3,8 +3,8 @@ import Link from 'next/link'
 import React from 'react'
 import styles from '../styles/layout.module.css'
 import { useAccount } from 'wagmi'
-import { ConnectWallet } from './ConnectWallet'
 import { ConnectWorldCoin } from './ConnectWorldCoin'
+import { ConnectWallet } from './ConnectWallet'
 export function Layout({ children }: { children: React.ReactNode }) {
   const account = useAccount()
 
@@ -30,8 +30,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className='collapse navbar-collapse'>
           <ul className={`${styles.connectors} nav navbar-nav navbar-center`}>
             <li>
-              <ConnectWallet/>
-              <ConnectWorldCoin/>
+              <ConnectWallet />
+              <ConnectWorldCoin />
             </li>
           </ul>
         </div>
