@@ -1,2 +1,2 @@
-forge-std/=lib/forge-std/src/
-ds-test/=lib/forge-std/lib/ds-test/src/
+@openzeppelin/contracts/=lib/eas-contracts/node_modules/@openzeppelin/contracts/
+eas-contracts/=lib/eas-contracts/contracts/
