@@ -3,6 +3,8 @@ import Link from 'next/link'
 import React from 'react'
 import styles from '../styles/layout.module.css'
 import { useAccount } from 'wagmi'
+import { ConnectWallet } from './ConnectWallet'
+import { ConnectWorldCoin } from './ConnectWorldCoin'
 export function Layout({ children }: { children: React.ReactNode }) {
   const account = useAccount()
 
@@ -21,15 +23,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <Link href='/feed'>Feed</Link>
             </li>
             <li>
-              <Link href={`/${account.address}`}>Profile</Link>
+              <Link href={`/profile/${account.address}`}>Profile</Link>
             </li>
           </ul>
         </div>
         <div className='collapse navbar-collapse'>
-          <ul className='nav navbar-nav navbar-center'>
+          <ul className={`${styles.connectors} nav navbar-nav navbar-center`}>
             <li>
-              <button className='btn btn-md btn-primary'>connect wallet </button>
-              <button className='btn btn-md btn-primary'>connect worldcoin</button>
+              <ConnectWallet/>
+              <ConnectWorldCoin/>
             </li>
           </ul>
         </div>
