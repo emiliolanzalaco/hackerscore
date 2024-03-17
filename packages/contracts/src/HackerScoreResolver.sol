@@ -6,7 +6,6 @@ import {ISchemaResolver} from "eas-contracts/resolver/ISchemaResolver.sol";
 import {ISchemaRegistry} from "eas-contracts/ISchemaRegistry.sol";
 import {IEAS, Attestation} from "eas-contracts/IEAS.sol";
 import {Registration, Cred} from "./types/Attestations.sol";
-import {console} from "forge-std/console.sol";
 
 contract HackerScoreResolver is SchemaResolver {
     mapping(address => uint256) public hackerScores;
@@ -49,14 +48,14 @@ contract HackerScoreResolver is SchemaResolver {
     }
 
     function _onCred(Attestation calldata attestation) private {
-        Cred memory cred = abi.decode(attestation.data, (Cred));
         if (!isRegistered(attestation.attester)) {
             revert NotRegistered(attestation.attester);
         }
         if (!isRegistered(attestation.recipient)) {
             revert NotRegistered(attestation.recipient);
         }
-        hackerScores[attestation.recipient] += cred.score;
+        (uint256 score, ) = abi.decode(attestation.data, (uint256, bytes32));
+        hackerScores[attestation.recipient] += score;
     }
 
     function isRegistered(address user) public view returns (bool) {

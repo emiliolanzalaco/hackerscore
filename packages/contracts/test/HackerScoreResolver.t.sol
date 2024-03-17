@@ -46,7 +46,7 @@ contract HackerResolverTest is Test {
 
     /// helpers
 
-    function _attestCred(address attester, address recipient, uint256 score, string memory description) private {
+    function _attestCred(address attester, address recipient, uint256 score, bytes32 description) private {
         AttestationRequest memory request = AttestationRequest({
             schema: hackerCredSchemaUID,
             data: _makeAttestationData(recipient, abi.encode(Cred(score, description)))

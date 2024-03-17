@@ -8,5 +8,5 @@ struct Registration {
 
 struct Cred {
     uint256 score;
-    string description;
+    bytes32 description;
 }
