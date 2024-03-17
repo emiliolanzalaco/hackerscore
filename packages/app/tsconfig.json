@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/next/tsconfig.json",
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES2020",
     "plugins": [
       {
         "name": "next"
@@ -9,7 +9,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "moduleResolution": "Node"
   },
   "ts-node": {
     "require": ["tsconfig-paths/register"]
