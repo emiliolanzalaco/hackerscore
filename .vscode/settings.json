@@ -5,5 +5,6 @@
   "git.ignoreSubmodules": true,
   "[solidity]": {
     "editor.defaultFormatter": "JuanBlanco.solidity"
-  }
+  },
+  "solidity.compileUsingRemoteVersion": "v0.8.22+commit.4fc1097e"
 }
