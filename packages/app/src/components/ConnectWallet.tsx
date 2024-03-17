@@ -8,8 +8,6 @@ function truncate(address: string) {
 
 export function ConnectWallet() {
   const { setShowAuthFlow, handleLogOut, user } = useDynamicContext()
-  const smartAccountClient = useSmartAccountClient()
-  console.log(smartAccountClient)
   return (
     <>
       {user?.email ? (

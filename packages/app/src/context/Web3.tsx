@@ -10,6 +10,7 @@ import { DynamicWagmiConnector } from '@dynamic-labs/wagmi-connector'
 import { EthereumWalletConnectors } from '@dynamic-labs/ethereum'
 import { baseSepolia } from 'viem/chains'
 import { createClient, createPublicClient, http } from 'viem'
+import { SmartAccountContext, SmartAccountProvider } from './SmartAccountProvider'
 
 interface Props extends PropsWithChildren {
   initialState?: State
@@ -35,7 +36,9 @@ export function Web3Provider(props: Props) {
               environmentId: '9156e906-9a36-4a2d-ab8c-7b585506f0cb',
               walletConnectors: [EthereumWalletConnectors],
             }}>
-            <DynamicWagmiConnector>{props.children}</DynamicWagmiConnector>
+            <DynamicWagmiConnector>
+              <SmartAccountProvider>{props.children}</SmartAccountProvider>
+            </DynamicWagmiConnector>
           </DynamicContextProvider>
         </QueryClientProvider>
       </WagmiProvider>
