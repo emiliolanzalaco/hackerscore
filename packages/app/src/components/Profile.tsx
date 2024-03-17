@@ -8,7 +8,7 @@ export function Profile({ ensOrAddress }: { ensOrAddress: string }) {
       <div className='jumbotron'>
         <Image src={zoltar} alt='Profile Photo' className='profile-photo' />
         <h2>@emiliolanzalaco</h2>
-        <p style={{fontSize: '4rem' }}>
+        <p style={{ fontSize: '4rem' }}>
           <span style={{ color: '#0f0', fontSize: '4rem' }}>10X </span>Hacker
         </p>
       </div>
