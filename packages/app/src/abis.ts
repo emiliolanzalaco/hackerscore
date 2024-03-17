@@ -1,124 +1,1046 @@
 export const EAS_ABI = [
   {
     inputs: [
-      { internalType: 'address', name: 'recipient', type: 'address', indexed: true },
-      { internalType: 'address', name: 'attester', type: 'address', indexed: true },
-      { internalType: 'bytes32', name: 'uid', type: 'bytes32', indexed: false },
-      { internalType: 'bytes32', name: 'schemaUID', type: 'bytes32', indexed: true },
+      {
+        internalType: 'contract ISchemaRegistry',
+        name: 'registry',
+        type: 'address',
+      },
     ],
-    type: 'event',
+    stateMutability: 'nonpayable',
+    type: 'constructor',
+  },
+  {
+    inputs: [],
+    name: 'AccessDenied',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'AlreadyRevoked',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'AlreadyRevokedOffchain',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'AlreadyTimestamped',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InsufficientValue',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidAttestation',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidAttestations',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidExpirationTime',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidLength',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidOffset',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidRegistry',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidRevocation',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidRevocations',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidSchema',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidSignature',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'InvalidVerifier',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'Irrevocable',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'NotFound',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'NotPayable',
+    type: 'error',
+  },
+  {
+    inputs: [],
+    name: 'WrongSchema',
+    type: 'error',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'recipient',
+        type: 'address',
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'attester',
+        type: 'address',
+      },
+      {
+        indexed: false,
+        internalType: 'bytes32',
+        name: 'uid',
+        type: 'bytes32',
+      },
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'schema',
+        type: 'bytes32',
+      },
+    ],
     name: 'Attested',
-    anonymous: false,
+    type: 'event',
   },
   {
+    anonymous: false,
     inputs: [
-      { internalType: 'address', name: 'recipient', type: 'address', indexed: true },
-      { internalType: 'address', name: 'attester', type: 'address', indexed: true },
-      { internalType: 'bytes32', name: 'uid', type: 'bytes32', indexed: false },
-      { internalType: 'bytes32', name: 'schemaUID', type: 'bytes32', indexed: true },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'recipient',
+        type: 'address',
+      },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'attester',
+        type: 'address',
+      },
+      {
+        indexed: false,
+        internalType: 'bytes32',
+        name: 'uid',
+        type: 'bytes32',
+      },
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'schema',
+        type: 'bytes32',
+      },
     ],
-    type: 'event',
     name: 'Revoked',
-    anonymous: false,
+    type: 'event',
   },
   {
+    anonymous: false,
     inputs: [
-      { internalType: 'address', name: 'revoker', type: 'address', indexed: true },
-      { internalType: 'bytes32', name: 'data', type: 'bytes32', indexed: true },
-      { internalType: 'uint64', name: 'timestamp', type: 'uint64', indexed: true },
+      {
+        indexed: true,
+        internalType: 'address',
+        name: 'revoker',
+        type: 'address',
+      },
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'data',
+        type: 'bytes32',
+      },
+      {
+        indexed: true,
+        internalType: 'uint64',
+        name: 'timestamp',
+        type: 'uint64',
+      },
     ],
-    type: 'event',
     name: 'RevokedOffchain',
-    anonymous: false,
+    type: 'event',
   },
   {
-    inputs: [
-      { internalType: 'bytes32', name: 'data', type: 'bytes32', indexed: true },
-      { internalType: 'uint64', name: 'timestamp', type: 'uint64', indexed: true },
-    ],
-    type: 'event',
-    name: 'Timestamped',
     anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: 'bytes32',
+        name: 'data',
+        type: 'bytes32',
+      },
+      {
+        indexed: true,
+        internalType: 'uint64',
+        name: 'timestamp',
+        type: 'uint64',
+      },
+    ],
+    name: 'Timestamped',
+    type: 'event',
+  },
+  {
+    inputs: [],
+    name: 'VERSION',
+    outputs: [
+      {
+        internalType: 'string',
+        name: '',
+        type: 'string',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
   },
   {
     inputs: [
       {
+        components: [
+          {
+            internalType: 'bytes32',
+            name: 'schema',
+            type: 'bytes32',
+          },
+          {
+            components: [
+              {
+                internalType: 'address',
+                name: 'recipient',
+                type: 'address',
+              },
+              {
+                internalType: 'uint64',
+                name: 'expirationTime',
+                type: 'uint64',
+              },
+              {
+                internalType: 'bool',
+                name: 'revocable',
+                type: 'bool',
+              },
+              {
+                internalType: 'bytes32',
+                name: 'refUID',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'bytes',
+                name: 'data',
+                type: 'bytes',
+              },
+              {
+                internalType: 'uint256',
+                name: 'value',
+                type: 'uint256',
+              },
+            ],
+            internalType: 'struct AttestationRequestData',
+            name: 'data',
+            type: 'tuple',
+          },
+        ],
         internalType: 'struct AttestationRequest',
         name: 'request',
         type: 'tuple',
-        components: [
-          { internalType: 'bytes32', name: 'schema', type: 'bytes32' },
-          {
-            internalType: 'struct AttestationRequestData',
-            name: 'data',
-            type: 'tuple',
-            components: [
-              { internalType: 'address', name: 'recipient', type: 'address' },
-              { internalType: 'uint64', name: 'expirationTime', type: 'uint64' },
-              { internalType: 'bool', name: 'revocable', type: 'bool' },
-              { internalType: 'bytes32', name: 'refUID', type: 'bytes32' },
-              { internalType: 'bytes', name: 'data', type: 'bytes' },
-              { internalType: 'uint256', name: 'value', type: 'uint256' },
-            ],
-          },
-        ],
+      },
+    ],
+    name: 'attest',
+    outputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32',
       },
     ],
     stateMutability: 'payable',
     type: 'function',
-    name: 'attest',
-    outputs: [{ internalType: 'bytes32', name: '', type: 'bytes32' }],
   },
   {
     inputs: [
       {
-        internalType: 'struct DelegatedAttestationRequest',
-        name: 'delegatedRequest',
-        type: 'tuple',
         components: [
-          { internalType: 'bytes32', name: 'schema', type: 'bytes32' },
           {
+            internalType: 'bytes32',
+            name: 'schema',
+            type: 'bytes32',
+          },
+          {
+            components: [
+              {
+                internalType: 'address',
+                name: 'recipient',
+                type: 'address',
+              },
+              {
+                internalType: 'uint64',
+                name: 'expirationTime',
+                type: 'uint64',
+              },
+              {
+                internalType: 'bool',
+                name: 'revocable',
+                type: 'bool',
+              },
+              {
+                internalType: 'bytes32',
+                name: 'refUID',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'bytes',
+                name: 'data',
+                type: 'bytes',
+              },
+              {
+                internalType: 'uint256',
+                name: 'value',
+                type: 'uint256',
+              },
+            ],
             internalType: 'struct AttestationRequestData',
             name: 'data',
             type: 'tuple',
-            components: [
-              { internalType: 'address', name: 'recipient', type: 'address' },
-              { internalType: 'uint64', name: 'expirationTime', type: 'uint64' },
-              { internalType: 'bool', name: 'revocable', type: 'bool' },
-              { internalType: 'bytes32', name: 'refUID', type: 'bytes32' },
-              { internalType: 'bytes', name: 'data', type: 'bytes' },
-              { internalType: 'uint256', name: 'value', type: 'uint256' },
-            ],
           },
           {
-            internalType: 'struct Signature',
+            components: [
+              {
+                internalType: 'uint8',
+                name: 'v',
+                type: 'uint8',
+              },
+              {
+                internalType: 'bytes32',
+                name: 'r',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'bytes32',
+                name: 's',
+                type: 'bytes32',
+              },
+            ],
+            internalType: 'struct EIP712Signature',
             name: 'signature',
             type: 'tuple',
-            components: [
-              { internalType: 'uint8', name: 'v', type: 'uint8' },
-              { internalType: 'bytes32', name: 'r', type: 'bytes32' },
-              { internalType: 'bytes32', name: 's', type: 'bytes32' },
-            ],
           },
-          { internalType: 'address', name: 'attester', type: 'address' },
-          { internalType: 'uint64', name: 'deadline', type: 'uint64' },
+          {
+            internalType: 'address',
+            name: 'attester',
+            type: 'address',
+          },
         ],
+        internalType: 'struct DelegatedAttestationRequest',
+        name: 'delegatedRequest',
+        type: 'tuple',
+      },
+    ],
+    name: 'attestByDelegation',
+    outputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32',
       },
     ],
     stateMutability: 'payable',
     type: 'function',
-    name: 'attestByDelegation',
-    outputs: [{ internalType: 'bytes32', name: '', type: 'bytes32' }],
   },
   {
-    inputs: [{ internalType: 'bytes32', name: 'uid', type: 'bytes32' }],
-    stateMutability: 'view',
+    inputs: [],
+    name: 'getAttestTypeHash',
+    outputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32',
+      },
+    ],
+    stateMutability: 'pure',
     type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'uid',
+        type: 'bytes32',
+      },
+    ],
     name: 'getAttestation',
     outputs: [
       {
+        components: [
+          {
+            internalType: 'bytes32',
+            name: 'uid',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'bytes32',
+            name: 'schema',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'uint64',
+            name: 'time',
+            type: 'uint64',
+          },
+          {
+            internalType: 'uint64',
+            name: 'expirationTime',
+            type: 'uint64',
+          },
+          {
+            internalType: 'uint64',
+            name: 'revocationTime',
+            type: 'uint64',
+          },
+          {
+            internalType: 'bytes32',
+            name: 'refUID',
+            type: 'bytes32',
+          },
+          {
+            internalType: 'address',
+            name: 'recipient',
+            type: 'address',
+          },
+          {
+            internalType: 'address',
+            name: 'attester',
+            type: 'address',
+          },
+          {
+            internalType: 'bool',
+            name: 'revocable',
+            type: 'bool',
+          },
+          {
+            internalType: 'bytes',
+            name: 'data',
+            type: 'bytes',
+          },
+        ],
         internalType: 'struct Attestation',
         name: '',
+        type: 'tuple',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getDomainSeparator',
+    outputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'account',
+        type: 'address',
+      },
+    ],
+    name: 'getNonce',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'revoker',
+        type: 'address',
+      },
+      {
+        internalType: 'bytes32',
+        name: 'data',
+        type: 'bytes32',
+      },
+    ],
+    name: 'getRevokeOffchain',
+    outputs: [
+      {
+        internalType: 'uint64',
+        name: '',
+        type: 'uint64',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getRevokeTypeHash',
+    outputs: [
+      {
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32',
+      },
+    ],
+    stateMutability: 'pure',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'getSchemaRegistry',
+    outputs: [
+      {
+        internalType: 'contract ISchemaRegistry',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'data',
+        type: 'bytes32',
+      },
+    ],
+    name: 'getTimestamp',
+    outputs: [
+      {
+        internalType: 'uint64',
+        name: '',
+        type: 'uint64',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'uid',
+        type: 'bytes32',
+      },
+    ],
+    name: 'isAttestationValid',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        components: [
+          {
+            internalType: 'bytes32',
+            name: 'schema',
+            type: 'bytes32',
+          },
+          {
+            components: [
+              {
+                internalType: 'address',
+                name: 'recipient',
+                type: 'address',
+              },
+              {
+                internalType: 'uint64',
+                name: 'expirationTime',
+                type: 'uint64',
+              },
+              {
+                internalType: 'bool',
+                name: 'revocable',
+                type: 'bool',
+              },
+              {
+                internalType: 'bytes32',
+                name: 'refUID',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'bytes',
+                name: 'data',
+                type: 'bytes',
+              },
+              {
+                internalType: 'uint256',
+                name: 'value',
+                type: 'uint256',
+              },
+            ],
+            internalType: 'struct AttestationRequestData[]',
+            name: 'data',
+            type: 'tuple[]',
+          },
+        ],
+        internalType: 'struct MultiAttestationRequest[]',
+        name: 'multiRequests',
+        type: 'tuple[]',
+      },
+    ],
+    name: 'multiAttest',
+    outputs: [
+      {
+        internalType: 'bytes32[]',
+        name: '',
+        type: 'bytes32[]',
+      },
+    ],
+    stateMutability: 'payable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        components: [
+          {
+            internalType: 'bytes32',
+            name: 'schema',
+            type: 'bytes32',
+          },
+          {
+            components: [
+              {
+                internalType: 'address',
+                name: 'recipient',
+                type: 'address',
+              },
+              {
+                internalType: 'uint64',
+                name: 'expirationTime',
+                type: 'uint64',
+              },
+              {
+                internalType: 'bool',
+                name: 'revocable',
+                type: 'bool',
+              },
+              {
+                internalType: 'bytes32',
+                name: 'refUID',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'bytes',
+                name: 'data',
+                type: 'bytes',
+              },
+              {
+                internalType: 'uint256',
+                name: 'value',
+                type: 'uint256',
+              },
+            ],
+            internalType: 'struct AttestationRequestData[]',
+            name: 'data',
+            type: 'tuple[]',
+          },
+          {
+            components: [
+              {
+                internalType: 'uint8',
+                name: 'v',
+                type: 'uint8',
+              },
+              {
+                internalType: 'bytes32',
+                name: 'r',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'bytes32',
+                name: 's',
+                type: 'bytes32',
+              },
+            ],
+            internalType: 'struct EIP712Signature[]',
+            name: 'signatures',
+            type: 'tuple[]',
+          },
+          {
+            internalType: 'address',
+            name: 'attester',
+            type: 'address',
+          },
+        ],
+        internalType: 'struct MultiDelegatedAttestationRequest[]',
+        name: 'multiDelegatedRequests',
+        type: 'tuple[]',
+      },
+    ],
+    name: 'multiAttestByDelegation',
+    outputs: [
+      {
+        internalType: 'bytes32[]',
+        name: '',
+        type: 'bytes32[]',
+      },
+    ],
+    stateMutability: 'payable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        components: [
+          {
+            internalType: 'bytes32',
+            name: 'schema',
+            type: 'bytes32',
+          },
+          {
+            components: [
+              {
+                internalType: 'bytes32',
+                name: 'uid',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'uint256',
+                name: 'value',
+                type: 'uint256',
+              },
+            ],
+            internalType: 'struct RevocationRequestData[]',
+            name: 'data',
+            type: 'tuple[]',
+          },
+        ],
+        internalType: 'struct MultiRevocationRequest[]',
+        name: 'multiRequests',
+        type: 'tuple[]',
+      },
+    ],
+    name: 'multiRevoke',
+    outputs: [],
+    stateMutability: 'payable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        components: [
+          {
+            internalType: 'bytes32',
+            name: 'schema',
+            type: 'bytes32',
+          },
+          {
+            components: [
+              {
+                internalType: 'bytes32',
+                name: 'uid',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'uint256',
+                name: 'value',
+                type: 'uint256',
+              },
+            ],
+            internalType: 'struct RevocationRequestData[]',
+            name: 'data',
+            type: 'tuple[]',
+          },
+          {
+            components: [
+              {
+                internalType: 'uint8',
+                name: 'v',
+                type: 'uint8',
+              },
+              {
+                internalType: 'bytes32',
+                name: 'r',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'bytes32',
+                name: 's',
+                type: 'bytes32',
+              },
+            ],
+            internalType: 'struct EIP712Signature[]',
+            name: 'signatures',
+            type: 'tuple[]',
+          },
+          {
+            internalType: 'address',
+            name: 'revoker',
+            type: 'address',
+          },
+        ],
+        internalType: 'struct MultiDelegatedRevocationRequest[]',
+        name: 'multiDelegatedRequests',
+        type: 'tuple[]',
+      },
+    ],
+    name: 'multiRevokeByDelegation',
+    outputs: [],
+    stateMutability: 'payable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32[]',
+        name: 'data',
+        type: 'bytes32[]',
+      },
+    ],
+    name: 'multiRevokeOffchain',
+    outputs: [
+      {
+        internalType: 'uint64',
+        name: '',
+        type: 'uint64',
+      },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32[]',
+        name: 'data',
+        type: 'bytes32[]',
+      },
+    ],
+    name: 'multiTimestamp',
+    outputs: [
+      {
+        internalType: 'uint64',
+        name: '',
+        type: 'uint64',
+      },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        components: [
+          {
+            internalType: 'bytes32',
+            name: 'schema',
+            type: 'bytes32',
+          },
+          {
+            components: [
+              {
+                internalType: 'bytes32',
+                name: 'uid',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'uint256',
+                name: 'value',
+                type: 'uint256',
+              },
+            ],
+            internalType: 'struct RevocationRequestData',
+            name: 'data',
+            type: 'tuple',
+          },
+        ],
+        internalType: 'struct RevocationRequest',
+        name: 'request',
+        type: 'tuple',
+      },
+    ],
+    name: 'revoke',
+    outputs: [],
+    stateMutability: 'payable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        components: [
+          {
+            internalType: 'bytes32',
+            name: 'schema',
+            type: 'bytes32',
+          },
+          {
+            components: [
+              {
+                internalType: 'bytes32',
+                name: 'uid',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'uint256',
+                name: 'value',
+                type: 'uint256',
+              },
+            ],
+            internalType: 'struct RevocationRequestData',
+            name: 'data',
+            type: 'tuple',
+          },
+          {
+            components: [
+              {
+                internalType: 'uint8',
+                name: 'v',
+                type: 'uint8',
+              },
+              {
+                internalType: 'bytes32',
+                name: 'r',
+                type: 'bytes32',
+              },
+              {
+                internalType: 'bytes32',
+                name: 's',
+                type: 'bytes32',
+              },
+            ],
+            internalType: 'struct EIP712Signature',
+            name: 'signature',
+            type: 'tuple',
+          },
+          {
+            internalType: 'address',
+            name: 'revoker',
+            type: 'address',
+          },
+        ],
+        internalType: 'struct DelegatedRevocationRequest',
+        name: 'delegatedRequest',
+        type: 'tuple',
+      },
+    ],
+    name: 'revokeByDelegation',
+    outputs: [],
+    stateMutability: 'payable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'data',
+        type: 'bytes32',
+      },
+    ],
+    name: 'revokeOffchain',
+    outputs: [
+      {
+        internalType: 'uint64',
+        name: '',
+        type: 'uint64',
+      },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'bytes32',
+        name: 'data',
+        type: 'bytes32',
+      },
+    ],
+    name: 'timestamp',
+    outputs: [
+      {
+        internalType: 'uint64',
+        name: '',
+        type: 'uint64',
+      },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+] as const
+
+export const HACKER_SCORE_RESOLVER_ABI = [
+  {
+    inputs: [{ internalType: 'address', name: 'eas_', type: 'address' }],
+    stateMutability: 'nonpayable',
+    type: 'constructor',
+  },
+  { inputs: [], type: 'error', name: 'AccessDenied' },
+  { inputs: [], type: 'error', name: 'InsufficientValue' },
+  { inputs: [], type: 'error', name: 'InvalidEAS' },
+  { inputs: [], type: 'error', name: 'InvalidLength' },
+  { inputs: [], type: 'error', name: 'InvalidSchemaUID' },
+  { inputs: [], type: 'error', name: 'NotPayable' },
+  {
+    inputs: [{ internalType: 'address', name: 'user', type: 'address' }],
+    type: 'error',
+    name: 'NotRegistered',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'struct Attestation',
+        name: 'attestation',
         type: 'tuple',
         components: [
           { internalType: 'bytes32', name: 'uid', type: 'bytes32' },
@@ -134,255 +1056,136 @@ export const EAS_ABI = [
         ],
       },
     ],
-  },
-  {
-    inputs: [
-      { internalType: 'address', name: 'revoker', type: 'address' },
-      { internalType: 'bytes32', name: 'data', type: 'bytes32' },
-    ],
-    stateMutability: 'view',
+    stateMutability: 'payable',
     type: 'function',
-    name: 'getRevokeOffchain',
-    outputs: [{ internalType: 'uint64', name: '', type: 'uint64' }],
+    name: 'attest',
+    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
   },
   {
     inputs: [],
     stateMutability: 'view',
     type: 'function',
-    name: 'getSchemaRegistry',
-    outputs: [{ internalType: 'contract ISchemaRegistry', name: '', type: 'address' }],
+    name: 'eas',
+    outputs: [{ internalType: 'contract IEAS', name: '', type: 'address' }],
   },
   {
-    inputs: [{ internalType: 'bytes32', name: 'data', type: 'bytes32' }],
+    inputs: [],
     stateMutability: 'view',
     type: 'function',
-    name: 'getTimestamp',
-    outputs: [{ internalType: 'uint64', name: '', type: 'uint64' }],
+    name: 'hackerCredSchemaUID',
+    outputs: [{ internalType: 'bytes32', name: '', type: 'bytes32' }],
   },
   {
-    inputs: [{ internalType: 'bytes32', name: 'uid', type: 'bytes32' }],
+    inputs: [{ internalType: 'address', name: '', type: 'address' }],
     stateMutability: 'view',
     type: 'function',
-    name: 'isAttestationValid',
+    name: 'hackerScores',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+  },
+  {
+    inputs: [],
+    stateMutability: 'pure',
+    type: 'function',
+    name: 'isPayable',
+    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+  },
+  {
+    inputs: [{ internalType: 'address', name: 'user', type: 'address' }],
+    stateMutability: 'view',
+    type: 'function',
+    name: 'isRegistered',
     outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
   },
   {
     inputs: [
       {
-        internalType: 'struct MultiAttestationRequest[]',
-        name: 'multiRequests',
+        internalType: 'struct Attestation[]',
+        name: 'attestations',
         type: 'tuple[]',
         components: [
+          { internalType: 'bytes32', name: 'uid', type: 'bytes32' },
           { internalType: 'bytes32', name: 'schema', type: 'bytes32' },
-          {
-            internalType: 'struct AttestationRequestData[]',
-            name: 'data',
-            type: 'tuple[]',
-            components: [
-              { internalType: 'address', name: 'recipient', type: 'address' },
-              { internalType: 'uint64', name: 'expirationTime', type: 'uint64' },
-              { internalType: 'bool', name: 'revocable', type: 'bool' },
-              { internalType: 'bytes32', name: 'refUID', type: 'bytes32' },
-              { internalType: 'bytes', name: 'data', type: 'bytes' },
-              { internalType: 'uint256', name: 'value', type: 'uint256' },
-            ],
-          },
+          { internalType: 'uint64', name: 'time', type: 'uint64' },
+          { internalType: 'uint64', name: 'expirationTime', type: 'uint64' },
+          { internalType: 'uint64', name: 'revocationTime', type: 'uint64' },
+          { internalType: 'bytes32', name: 'refUID', type: 'bytes32' },
+          { internalType: 'address', name: 'recipient', type: 'address' },
+          { internalType: 'address', name: 'attester', type: 'address' },
+          { internalType: 'bool', name: 'revocable', type: 'bool' },
+          { internalType: 'bytes', name: 'data', type: 'bytes' },
         ],
       },
+      { internalType: 'uint256[]', name: 'values', type: 'uint256[]' },
     ],
     stateMutability: 'payable',
     type: 'function',
     name: 'multiAttest',
-    outputs: [{ internalType: 'bytes32[]', name: '', type: 'bytes32[]' }],
+    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
   },
   {
     inputs: [
       {
-        internalType: 'struct MultiDelegatedAttestationRequest[]',
-        name: 'multiDelegatedRequests',
+        internalType: 'struct Attestation[]',
+        name: 'attestations',
         type: 'tuple[]',
         components: [
+          { internalType: 'bytes32', name: 'uid', type: 'bytes32' },
           { internalType: 'bytes32', name: 'schema', type: 'bytes32' },
-          {
-            internalType: 'struct AttestationRequestData[]',
-            name: 'data',
-            type: 'tuple[]',
-            components: [
-              { internalType: 'address', name: 'recipient', type: 'address' },
-              { internalType: 'uint64', name: 'expirationTime', type: 'uint64' },
-              { internalType: 'bool', name: 'revocable', type: 'bool' },
-              { internalType: 'bytes32', name: 'refUID', type: 'bytes32' },
-              { internalType: 'bytes', name: 'data', type: 'bytes' },
-              { internalType: 'uint256', name: 'value', type: 'uint256' },
-            ],
-          },
-          {
-            internalType: 'struct Signature[]',
-            name: 'signatures',
-            type: 'tuple[]',
-            components: [
-              { internalType: 'uint8', name: 'v', type: 'uint8' },
-              { internalType: 'bytes32', name: 'r', type: 'bytes32' },
-              { internalType: 'bytes32', name: 's', type: 'bytes32' },
-            ],
-          },
+          { internalType: 'uint64', name: 'time', type: 'uint64' },
+          { internalType: 'uint64', name: 'expirationTime', type: 'uint64' },
+          { internalType: 'uint64', name: 'revocationTime', type: 'uint64' },
+          { internalType: 'bytes32', name: 'refUID', type: 'bytes32' },
+          { internalType: 'address', name: 'recipient', type: 'address' },
           { internalType: 'address', name: 'attester', type: 'address' },
-          { internalType: 'uint64', name: 'deadline', type: 'uint64' },
+          { internalType: 'bool', name: 'revocable', type: 'bool' },
+          { internalType: 'bytes', name: 'data', type: 'bytes' },
         ],
       },
-    ],
-    stateMutability: 'payable',
-    type: 'function',
-    name: 'multiAttestByDelegation',
-    outputs: [{ internalType: 'bytes32[]', name: '', type: 'bytes32[]' }],
-  },
-  {
-    inputs: [
-      {
-        internalType: 'struct MultiRevocationRequest[]',
-        name: 'multiRequests',
-        type: 'tuple[]',
-        components: [
-          { internalType: 'bytes32', name: 'schema', type: 'bytes32' },
-          {
-            internalType: 'struct RevocationRequestData[]',
-            name: 'data',
-            type: 'tuple[]',
-            components: [
-              { internalType: 'bytes32', name: 'uid', type: 'bytes32' },
-              { internalType: 'uint256', name: 'value', type: 'uint256' },
-            ],
-          },
-        ],
-      },
+      { internalType: 'uint256[]', name: 'values', type: 'uint256[]' },
     ],
     stateMutability: 'payable',
     type: 'function',
     name: 'multiRevoke',
+    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
+  },
+  {
+    inputs: [{ internalType: 'address', name: '', type: 'address' }],
+    stateMutability: 'view',
+    type: 'function',
+    name: 'nullifierHashes',
+    outputs: [{ internalType: 'bytes32', name: '', type: 'bytes32' }],
+  },
+  {
+    inputs: [],
+    stateMutability: 'view',
+    type: 'function',
+    name: 'registrationSchemaUID',
+    outputs: [{ internalType: 'bytes32', name: '', type: 'bytes32' }],
   },
   {
     inputs: [
       {
-        internalType: 'struct MultiDelegatedRevocationRequest[]',
-        name: 'multiDelegatedRequests',
-        type: 'tuple[]',
-        components: [
-          { internalType: 'bytes32', name: 'schema', type: 'bytes32' },
-          {
-            internalType: 'struct RevocationRequestData[]',
-            name: 'data',
-            type: 'tuple[]',
-            components: [
-              { internalType: 'bytes32', name: 'uid', type: 'bytes32' },
-              { internalType: 'uint256', name: 'value', type: 'uint256' },
-            ],
-          },
-          {
-            internalType: 'struct Signature[]',
-            name: 'signatures',
-            type: 'tuple[]',
-            components: [
-              { internalType: 'uint8', name: 'v', type: 'uint8' },
-              { internalType: 'bytes32', name: 'r', type: 'bytes32' },
-              { internalType: 'bytes32', name: 's', type: 'bytes32' },
-            ],
-          },
-          { internalType: 'address', name: 'revoker', type: 'address' },
-          { internalType: 'uint64', name: 'deadline', type: 'uint64' },
-        ],
-      },
-    ],
-    stateMutability: 'payable',
-    type: 'function',
-    name: 'multiRevokeByDelegation',
-  },
-  {
-    inputs: [{ internalType: 'bytes32[]', name: 'data', type: 'bytes32[]' }],
-    stateMutability: 'nonpayable',
-    type: 'function',
-    name: 'multiRevokeOffchain',
-    outputs: [{ internalType: 'uint64', name: '', type: 'uint64' }],
-  },
-  {
-    inputs: [{ internalType: 'bytes32[]', name: 'data', type: 'bytes32[]' }],
-    stateMutability: 'nonpayable',
-    type: 'function',
-    name: 'multiTimestamp',
-    outputs: [{ internalType: 'uint64', name: '', type: 'uint64' }],
-  },
-  {
-    inputs: [
-      {
-        internalType: 'struct RevocationRequest',
-        name: 'request',
+        internalType: 'struct Attestation',
+        name: 'attestation',
         type: 'tuple',
         components: [
+          { internalType: 'bytes32', name: 'uid', type: 'bytes32' },
           { internalType: 'bytes32', name: 'schema', type: 'bytes32' },
-          {
-            internalType: 'struct RevocationRequestData',
-            name: 'data',
-            type: 'tuple',
-            components: [
-              { internalType: 'bytes32', name: 'uid', type: 'bytes32' },
-              { internalType: 'uint256', name: 'value', type: 'uint256' },
-            ],
-          },
+          { internalType: 'uint64', name: 'time', type: 'uint64' },
+          { internalType: 'uint64', name: 'expirationTime', type: 'uint64' },
+          { internalType: 'uint64', name: 'revocationTime', type: 'uint64' },
+          { internalType: 'bytes32', name: 'refUID', type: 'bytes32' },
+          { internalType: 'address', name: 'recipient', type: 'address' },
+          { internalType: 'address', name: 'attester', type: 'address' },
+          { internalType: 'bool', name: 'revocable', type: 'bool' },
+          { internalType: 'bytes', name: 'data', type: 'bytes' },
         ],
       },
     ],
     stateMutability: 'payable',
     type: 'function',
     name: 'revoke',
-  },
-  {
-    inputs: [
-      {
-        internalType: 'struct DelegatedRevocationRequest',
-        name: 'delegatedRequest',
-        type: 'tuple',
-        components: [
-          { internalType: 'bytes32', name: 'schema', type: 'bytes32' },
-          {
-            internalType: 'struct RevocationRequestData',
-            name: 'data',
-            type: 'tuple',
-            components: [
-              { internalType: 'bytes32', name: 'uid', type: 'bytes32' },
-              { internalType: 'uint256', name: 'value', type: 'uint256' },
-            ],
-          },
-          {
-            internalType: 'struct Signature',
-            name: 'signature',
-            type: 'tuple',
-            components: [
-              { internalType: 'uint8', name: 'v', type: 'uint8' },
-              { internalType: 'bytes32', name: 'r', type: 'bytes32' },
-              { internalType: 'bytes32', name: 's', type: 'bytes32' },
-            ],
-          },
-          { internalType: 'address', name: 'revoker', type: 'address' },
-          { internalType: 'uint64', name: 'deadline', type: 'uint64' },
-        ],
-      },
-    ],
-    stateMutability: 'payable',
-    type: 'function',
-    name: 'revokeByDelegation',
-  },
-  {
-    inputs: [{ internalType: 'bytes32', name: 'data', type: 'bytes32' }],
-    stateMutability: 'nonpayable',
-    type: 'function',
-    name: 'revokeOffchain',
-    outputs: [{ internalType: 'uint64', name: '', type: 'uint64' }],
-  },
-  {
-    inputs: [{ internalType: 'bytes32', name: 'data', type: 'bytes32' }],
-    stateMutability: 'nonpayable',
-    type: 'function',
-    name: 'timestamp',
-    outputs: [{ internalType: 'uint64', name: '', type: 'uint64' }],
+    outputs: [{ internalType: 'bool', name: '', type: 'bool' }],
   },
   {
     inputs: [],
@@ -391,4 +1194,5 @@ export const EAS_ABI = [
     name: 'version',
     outputs: [{ internalType: 'string', name: '', type: 'string' }],
   },
+  { inputs: [], stateMutability: 'payable', type: 'receive' },
 ] as const
