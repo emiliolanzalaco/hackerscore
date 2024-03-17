@@ -1,0 +1,27 @@
+.feed-container {
+  max-width: 760px;
+  margin: 20px auto;
+  background-color: #111;
+  overflow-y: auto;
+  height: 500px;
+  border-radius: 5px;
+  padding: 15px;
+}
+.panel {
+  background-color: #222;
+  border: 1px solid #333;
+}
+.panel-heading {
+  background-color: #333;
+  color: white;
+}
+.panel-title {
+  color: whitesmoke;
+}
+.post-link {
+  color: #4a90e2;
+  text-decoration: none;
+}
+.post-link:hover {
+  text-decoration: underline;
+}
